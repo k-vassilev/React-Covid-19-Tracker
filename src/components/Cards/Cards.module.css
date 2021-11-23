@@ -18,6 +18,14 @@
 	border-bottom: 10px solid rgba(255, 0, 0, 0.5);
 }
 
+.deathrate{
+	margin: 0;
+}
+
+.deathrate::after{
+	Content: "%";
+}
+
 @media (max-width: 750px){
 	.card{
 		margin: 2% 0 !important;

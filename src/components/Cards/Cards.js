@@ -13,6 +13,7 @@ const Cards = ({ data: {
 	if (!confirmed) {
 		return "Loading...";
 	}
+	console.log(((deaths.value / confirmed.value)*100).toFixed(2));
 	return (
 		<div className={styles.container}>
 			<Grid container spacing={3} justify="center">
@@ -38,19 +39,16 @@ const Cards = ({ data: {
 				<Grid item component={Card} xs={12} md={3} className={cx(styles.card, styles.recovered)}>
 					<CardContent>
 						<Typography color="textSecondary" gutterBottom>
-							Recovered
+							Death rate in percentages
 						</Typography>
 						<Typography variant="h5">
-							<CountUp 
-								start={0}
-								end={recovered.value}
-								duration={2}
-								separator=","
-							/>
+
+								<h3 className={styles.deathrate}>{((deaths.value / confirmed.value)*100).toFixed(2)}</h3>
+
 						</Typography>
 						<Typography color="textSecondary">{new Date(lastUpdate).toDateString()}</Typography>
 						<Typography variant="body2">
-							Number of recoveries from COVID-19
+							Death Rate from COVID-19 in percentage of total infected cases.
 						</Typography>
 					</CardContent>
 				</Grid>
